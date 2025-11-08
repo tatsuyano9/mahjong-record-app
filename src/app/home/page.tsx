@@ -1,18 +1,12 @@
 import * as React from "react";
 
-import CreateLeagueCard from "@/components/league/CreateLeagueCard";
-import LeagueCard from "@/components/league/LeagueCard";
+import CreateLeagueCard from "@/components/create-league-card/index";
+import LeagueCard from "@/components/league-card/index";
 
-import { mockLeagues } from "@/mocks/league";
-import { mockUser } from "@/mocks/user";
+import { useHome } from "@/app/home/hooks/index";
 
 export const Home: React.FC = () => {
-  const user = mockUser;
-  const leagues = mockLeagues;
-
-  const error: string | null = null;
-
-  const hasLeagues = leagues.length > 0;
+  const { user, leagues, error, hasLeagues } = useHome();
 
   return (
     <div className="flex-1 bg-white min-h-full font-jp">
