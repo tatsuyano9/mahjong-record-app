@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -12,9 +10,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const NextJsDemoLayout: React.FC<NextJsDemoLayoutProps> = ({
-  children,
-}) => {
+const NextJsDemoLayout = ({ children }: NextJsDemoLayoutProps) => {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       {children}

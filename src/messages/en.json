@@ -1,0 +1,15 @@
+{
+  "home": {
+    "message": "This is our top page."
+  },
+  "nextJsDemo": {
+    "getStartByEditingMessage": "Get started by editing ",
+    "pageTsxFilePathMessage": "src/app/page.tsx",
+    "saveAndSeeMessage": "Save and see your changes instantly.",
+    "deployMessage": "Deploy now",
+    "readOurDocsMessage": "Read our docs",
+    "learnMessage": "Learn",
+    "examplesMessage": "Examples",
+    "goToNextJsOrgMessage": "Go to Next.js.org →"
+  }
+}

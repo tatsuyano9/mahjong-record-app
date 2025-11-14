@@ -1,0 +1,15 @@
+{
+  "home": {
+    "message": "これは私たちのトップページです。"
+  },
+  "nextJsDemo": {
+    "getStartByEditingMessage": "以下のファイルを編集して開始してください。",
+    "pageTsxFilePathMessage": "src/app/page.tsx",
+    "saveAndSeeMessage": "コードを保存すると、変更内容が即座に反映されます。",
+    "deployMessage": "今すぐデプロイする",
+    "readOurDocsMessage": "ドキュメントを読む",
+    "learnMessage": "学ぶ",
+    "examplesMessage": "例を見る",
+    "goToNextJsOrgMessage": "Next.js.orgに行く →"
+  }
+}
