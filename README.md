@@ -1,4 +1,4 @@
-# Jumbo (雀望録)
+# Jumbo (雀望録)2
 
 ## How to run App
 
