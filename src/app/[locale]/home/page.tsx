@@ -3,7 +3,7 @@ import * as React from "react";
 import CreateLeagueCard from "@/components/create-league-card/index";
 import LeagueCard from "@/components/league-card/index";
 
-import { useHome } from "@/app/home/hooks/index";
+import { useHome } from "./hooks";
 
 export const Home: React.FC = () => {
   const { user, leagues, error, hasLeagues } = useHome();
