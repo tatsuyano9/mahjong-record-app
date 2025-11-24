@@ -1,6 +1,19 @@
-import type { League } from "@/types/domain";
+import { LeagueMembersData } from "./league-member";
 
-export const mockLeagues: League[] = [
-  { id: "league1", name: "雀聖リーグ", memberCount: 4, gameCount: 20 },
-  { id: "league2", name: "天鳳ファミリー", memberCount: 6, gameCount: 50 },
-];
+import { League } from "@/types/domain/league";
+
+export const leagueData1: League = {
+  id: "000000",
+  name: "雀望リーグ",
+  createdAt: new Date(2000, 9, 3),
+  members: LeagueMembersData,
+};
+
+export const leagueData2: League = {
+  id: "000001",
+  name: "雀リーグ",
+  createdAt: new Date(2000, 9, 4),
+  members: LeagueMembersData,
+};
+
+export const leaguesData: League[] = [leagueData1, leagueData2];

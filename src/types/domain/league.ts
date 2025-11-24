@@ -1,4 +1,4 @@
-import { User } from "@/types/domain";
+import { User } from "./user";
 
 export type League = {
   id: string;
@@ -11,7 +11,6 @@ export type LeagueMember = {
   player: User;
   joinedAt: Date;
   role: Role;
-  createdAt: Date;
 
   // 集計系
   totalPoints: number;
