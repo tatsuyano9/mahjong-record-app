@@ -1,4 +1,4 @@
-import { User } from "@/types/domain";
+import { User } from "./user";
 
 export type League = {
   id: string;
