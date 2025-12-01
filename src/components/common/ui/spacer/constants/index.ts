@@ -4,7 +4,7 @@ export const PADDING_MAP: Record<PaddingSize, string> = {
   "custom-xxsmall": "0.5",
   xxsmall: "1",
   xsmall: "2",
-  "custom-xsmall": "2.5",
+  "custom-small": "2.5",
   small: "3",
   "custom-medium": "3.5",
   medium: "4",
@@ -33,10 +33,10 @@ export const PADDING_MAP_KEYS = {
 
 export const MARGIN_MAP: Record<MarginSize, string> = {
   auto: "auto",
-  "custom-xxsmall": "0,5",
+  "custom-xxsmall": "0.5",
   xxsmall: "1",
   xsmall: "2",
-  "custom-xsmall": "2.5",
+  "custom-small": "2.5",
   small: "3",
   medium: "4",
   large: "5",
