@@ -5,6 +5,12 @@ export type League = {
   name: string;
   createdAt: Date;
   members: LeagueMember[];
+  //仮で追加
+  lastRecordedAt: Date;
+  ruleName: string;
+  totalGames: number;
+  standings: LeagueStanding[];
+  titles: LeagueDetailTitle[];
 };
 
 export type LeagueMember = {
@@ -19,3 +25,19 @@ export type LeagueMember = {
 };
 
 export type Role = "owner" | "member";
+
+export type LeagueStanding = {
+  rank: number;
+  playerName: string;
+  totalPt: number;
+  first: number;
+  second: number;
+  third: number;
+  fourth: number;
+};
+
+export type LeagueDetailTitle = {
+  label: string;
+  playerName: string;
+  value: string;
+};

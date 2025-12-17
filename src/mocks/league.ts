@@ -17,3 +17,18 @@ export const leagueData2: League = {
 };
 
 export const leaguesData: League[] = [leagueData1, leagueData2];
+
+export const mockLeagues: League[] = [
+  {
+    id: "league1",
+    name: "雀聖リーグ",
+    members: [],
+    createdAt: new Date(2020, 1, 1),
+  },
+  {
+    id: "league2",
+    name: "天鳳ファミリー",
+    members: [],
+    createdAt: new Date(2020, 1, 1),
+  },
+];

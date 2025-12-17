@@ -5,9 +5,15 @@ export const useHome = () => {
   const user = userData1;
   const leagues = leaguesData;
 
-  const error: string | null = null;
-
   const hasLeagues = leagues.length > 0;
 
-  return { user, leagues, error, hasLeagues };
+  const error: string | null = null;
+
+  return {
+    userId: user.id,
+    userName: user.name,
+    leagues: leagues,
+    hasLeagues: hasLeagues,
+    error: error,
+  };
 };
