@@ -91,7 +91,7 @@ const PersonalRecordPage: React.FC = () => {
                       順位
                     </th>
                     <th className="py-2 px-4 border-b border-gray-300 text-left">
-                      得点
+                      回数
                     </th>
                   </tr>
                 </thead>
