@@ -3,16 +3,17 @@
 import * as React from "react";
 
 import Header from "@/components/common/container/header";
+import { LeagueSelectDefaultMessage } from "@/components/pages/personal-record/league-select-default-message";
 
 import { usePersonalRecord } from "./hooks";
 
 const PersonalRecordPage: React.FC = () => {
   const {
     userName,
-    joiningLeagues,
-    selectedLeagueId,
-    selectedLeagueMember,
-    onChangeLeague,
+    joiningLeagueSeasons,
+    selectedLeagueSeasonId,
+    selectedLeagueSeasonMember,
+    onChangeLeagueSeason,
     onDisplayButtonClick,
   } = usePersonalRecord();
 
@@ -24,18 +25,18 @@ const PersonalRecordPage: React.FC = () => {
           {userName}さんの個人記録
         </div>
         <div className="flex flex-col gap-2">
-          <div className="font-bold text-xl text-gray-500">リーグ選択</div>
+          <div className="font-bold text-xl text-gray-500">シーズン選択</div>
           <div className="flex flex-row gap-2">
             <select
               className="w-full border border-gray-300 rounded-md p-2 text-text-dark"
-              value={selectedLeagueId}
-              onChange={onChangeLeague}
+              value={selectedLeagueSeasonId}
+              onChange={onChangeLeagueSeason}
             >
-              <option value="">リーグを選択してください</option>
-              {joiningLeagues &&
-                joiningLeagues.map((league, index) => (
-                  <option key={index} value={league.id}>
-                    {league.name}
+              <option value="">シーズンを選択してください</option>
+              {joiningLeagueSeasons &&
+                joiningLeagueSeasons.map((leagueSeason, index) => (
+                  <option key={index} value={leagueSeason.id}>
+                    {leagueSeason.name}
                   </option>
                 ))}
             </select>
@@ -51,37 +52,37 @@ const PersonalRecordPage: React.FC = () => {
         </div>
         <div className="flex flex-col gap-2">
           <div className="font-bold text-xl text-gray-500">総合ポイント</div>
-          {selectedLeagueMember?.totalPoints ? (
+          {selectedLeagueSeasonMember?.totalPoints ? (
             <div className="text-lg font-bold text-text-dark">
-              {selectedLeagueMember.totalPoints} pt
+              {selectedLeagueSeasonMember.totalPoints} pt
             </div>
           ) : (
-            <div className="text-text-muted">リーグを選択して下さい。</div>
+            <LeagueSelectDefaultMessage />
           )}
         </div>
         <div className="flex flex-col gap-2">
           <div className="font-bold text-xl text-gray-500">総対局数</div>
-          {selectedLeagueMember?.gamesPlayed ? (
+          {selectedLeagueSeasonMember?.gamesPlayed ? (
             <div className="text-lg font-bold text-text-dark">
-              {selectedLeagueMember.gamesPlayed} 戦
+              {selectedLeagueSeasonMember.gamesPlayed} 戦
             </div>
           ) : (
-            <div className="text-text-muted">リーグを選択して下さい。</div>
+            <LeagueSelectDefaultMessage />
           )}
         </div>
         <div className="flex flex-col gap-2">
           <div className="font-bold text-xl text-gray-500">リーグ内順位</div>
-          {selectedLeagueMember?.rank ? (
+          {selectedLeagueSeasonMember?.rank ? (
             <div className="text-lg font-bold text-text-dark">
-              {selectedLeagueMember.rank} 位
+              {selectedLeagueSeasonMember.rank} 位
             </div>
           ) : (
-            <div className="text-text-muted">リーグを選択して下さい。</div>
+            <LeagueSelectDefaultMessage />
           )}
         </div>
         <div className="flex flex-col gap-2">
           <div className="font-bold text-xl text-gray-500">各順位回数</div>
-          {selectedLeagueMember?.numberOfEachOrder ? (
+          {selectedLeagueSeasonMember?.numberOfEachOrder ? (
             <div className="text-base font-bold text-text-dark rounded-md overflow-hidden border border-gray-300">
               <table className="min-w-full border-collapse">
                 <thead className="bg-gray-100">
@@ -98,32 +99,32 @@ const PersonalRecordPage: React.FC = () => {
                   <tr>
                     <td className="py-2 px-4 border-b border-gray-300">1位</td>
                     <td className="py-2 px-4 border-b border-gray-300">
-                      {selectedLeagueMember.numberOfEachOrder.first}
+                      {selectedLeagueSeasonMember.numberOfEachOrder.first}
                     </td>
                   </tr>
                   <tr>
                     <td className="py-2 px-4 border-b border-gray-300">2位</td>
                     <td className="py-2 px-4 border-b border-gray-300">
-                      {selectedLeagueMember.numberOfEachOrder.second}
+                      {selectedLeagueSeasonMember.numberOfEachOrder.second}
                     </td>
                   </tr>
                   <tr>
                     <td className="py-2 px-4 border-b border-gray-300">3位</td>
                     <td className="py-2 px-4 border-b border-gray-300">
-                      {selectedLeagueMember.numberOfEachOrder.third}
+                      {selectedLeagueSeasonMember.numberOfEachOrder.third}
                     </td>
                   </tr>
                   <tr>
                     <td className="py-2 px-4">4位</td>
                     <td className="py-2 px-4">
-                      {selectedLeagueMember.numberOfEachOrder.fourth}
+                      {selectedLeagueSeasonMember.numberOfEachOrder.fourth}
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
           ) : (
-            <div className="text-text-muted">リーグを選択して下さい。</div>
+            <LeagueSelectDefaultMessage />
           )}
         </div>
       </div>
