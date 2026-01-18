@@ -6,7 +6,7 @@ export const userData1: User = {
   userId: "0001",
   name: "岩田",
   email: "iwata@mail",
-  joiningLeagueIds: ["000000"],
+  joiningLeagueIds: ["000000", "000001"],
   createdAt: AppDate.fromYMD({
     year: 2000,
     month: 10,
