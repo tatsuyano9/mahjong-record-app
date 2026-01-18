@@ -2,51 +2,78 @@ import * as React from "react";
 
 import { leaguesData } from "@/mocks/league";
 import { userData1 } from "@/mocks/user";
-import { LeagueIdType, LeagueMember } from "@/types/domain/league";
+import {
+  LeagueIdType,
+  LeagueMember,
+  LeagueSeasonIdType,
+  LeagueSeasonMember,
+} from "@/types/domain/league";
 
 export const usePersonalRecord = () => {
   const { userId, name, joiningLeagueIds } = userData1;
 
-  const joiningLeagues = joiningLeagueIds?.map((leagueId) => {
-    return { id: leagueId, name: leaguesData[leagueId].name };
+  // 参加しているリーグのシーズン情報を結合して表示用に整形
+  const joiningLeagueSeasons = joiningLeagueIds?.flatMap((leagueId) => {
+    const league = leaguesData[leagueId];
+    // 各リーグのシーズンIDを取得
+    const leagueSeasonIds = Object.keys(league.seasons) as LeagueSeasonIdType[];
+
+    return leagueSeasonIds.map((leagueSeasonId) => {
+      const leagueSeason = league.seasons[leagueSeasonId];
+      return {
+        id: leagueSeasonId,
+        leagueId: leagueId,
+        name: `${league.name} - ${leagueSeason.name}`,
+      };
+    });
   });
 
-  const [selectedLeagueId, setSelectedLeagueId] = React.useState<
-    LeagueIdType | ""
+  const [selectedLeagueSeasonId, setSelectedLeagueSeasonId] = React.useState<
+    LeagueSeasonIdType | ""
   >("");
-  const [selectedLeagueMember, setSelectedLeagueMember] =
-    React.useState<LeagueMember | null>(null);
+  const [selectedLeagueSeasonMember, setSelectedLeagueSeasonMember] =
+    React.useState<LeagueSeasonMember | null>(null);
 
-  const onChangeLeague = React.useCallback(
+  const onChangeLeagueSeason = React.useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
-      setSelectedLeagueId(e.target.value as LeagueIdType);
+      setSelectedLeagueSeasonId(e.target.value as LeagueSeasonIdType);
     },
-    [selectedLeagueId]
+    [selectedLeagueSeasonId]
   );
 
   const onDisplayButtonClick = React.useCallback(() => {
-    if (!selectedLeagueId) {
-      setSelectedLeagueMember(null);
-      // TODO: ログ確認用(あとで削除)
-      console.log("League not selected");
+    if (!selectedLeagueSeasonId) {
+      setSelectedLeagueSeasonMember(null);
+      console.log("League season not selected");
       return;
     }
 
-    const league = leaguesData[selectedLeagueId];
-    const leagueMember = league.members[userId];
+    const selectedLeague = joiningLeagueSeasons?.find(
+      (season) => season.id == selectedLeagueSeasonId
+    );
 
-    setSelectedLeagueMember(leagueMember || null);
+    // selectedLeague が undefined でないことを保証する
+    if (!selectedLeague) {
+      setSelectedLeagueSeasonMember(null);
+      console.log("Selected league season not found");
+      return;
+    }
 
-    // TODO: ログ確認用(あとで削除)
-    console.log("Selected League Member:", selectedLeagueMember);
-  }, [selectedLeagueId, selectedLeagueMember, leaguesData]);
+    const league = leaguesData[selectedLeague.leagueId];
+    const leagueSeason = league.seasons[selectedLeagueSeasonId];
+    const leagueSeasonMember = leagueSeason.members[userId];
+
+    setSelectedLeagueSeasonMember(leagueSeasonMember || null);
+
+    console.log("Selected League Season Member:", selectedLeagueSeasonMember);
+  }, [selectedLeagueSeasonId, joiningLeagueSeasons, userId]);
 
   return {
     userName: name,
-    joiningLeagues,
-    selectedLeagueId,
-    selectedLeagueMember,
-    onChangeLeague,
+    joiningLeagueSeasons,
+    selectedLeagueSeasonId,
+    selectedLeagueSeasonMember,
+    onChangeLeagueSeason,
     onDisplayButtonClick,
   };
 };

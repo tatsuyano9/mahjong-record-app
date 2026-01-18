@@ -1,4 +1,5 @@
 import { leagueMembersData } from "./league-member";
+import { leagueSeasonsData, leagueSeasonsData2 } from "./league-season";
 
 import { League, LeagueIdType } from "@/types/domain/league";
 import { AppDate } from "@/types/utils/app-date";
@@ -12,6 +13,7 @@ export const leagueData1: League = {
     day: 4,
   }),
   members: leagueMembersData,
+  seasons: leagueSeasonsData,
   lastRecordedAt: AppDate.fromYMD({
     year: 2025,
     month: 11,
@@ -35,6 +37,7 @@ export const leagueData2: League = {
     day: 4,
   }),
   members: leagueMembersData,
+  seasons: leagueSeasonsData2,
   lastRecordedAt: AppDate.fromYMD({
     year: 2025,
     month: 11,
