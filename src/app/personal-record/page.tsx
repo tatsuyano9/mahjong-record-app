@@ -6,6 +6,7 @@ import Header from "@/components/common/container/header";
 import { LeagueSelectDefaultMessage } from "@/components/pages/personal-record/league-select-default-message";
 
 import { usePersonalRecord } from "./hooks";
+import { PersonalRecordCard } from "./personal-record-card";
 
 const PersonalRecordPage: React.FC = () => {
   const {
@@ -50,36 +51,34 @@ const PersonalRecordPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <div className="font-bold text-xl text-gray-500">総合ポイント</div>
-          {selectedLeagueSeasonMember?.totalPoints ? (
-            <div className="text-lg font-bold text-text-dark">
-              {selectedLeagueSeasonMember.totalPoints} pt
-            </div>
-          ) : (
-            <LeagueSelectDefaultMessage />
-          )}
-        </div>
-        <div className="flex flex-col gap-2">
-          <div className="font-bold text-xl text-gray-500">総対局数</div>
-          {selectedLeagueSeasonMember?.gamesPlayed ? (
-            <div className="text-lg font-bold text-text-dark">
-              {selectedLeagueSeasonMember.gamesPlayed} 戦
-            </div>
-          ) : (
-            <LeagueSelectDefaultMessage />
-          )}
-        </div>
-        <div className="flex flex-col gap-2">
-          <div className="font-bold text-xl text-gray-500">リーグ内順位</div>
-          {selectedLeagueSeasonMember?.rank ? (
-            <div className="text-lg font-bold text-text-dark">
-              {selectedLeagueSeasonMember.rank} 位
-            </div>
-          ) : (
-            <LeagueSelectDefaultMessage />
-          )}
-        </div>
+
+        {selectedLeagueSeasonMember ? (
+          <div className="grid grid-cols-2 gap-3 mt-1">
+            <PersonalRecordCard
+              title="総対戦数"
+              value={selectedLeagueSeasonMember.gamesPlayed}
+              unit="戦"
+            />
+            <PersonalRecordCard
+              title="総合pt"
+              value={selectedLeagueSeasonMember.totalPoints}
+              unit="pt"
+            />
+            <PersonalRecordCard
+              title="平均順位"
+              value={selectedLeagueSeasonMember.averageRank}
+              unit="位"
+            />
+            <PersonalRecordCard
+              title="連対率"
+              value={selectedLeagueSeasonMember.top2Rate}
+              unit="%"
+            />
+          </div>
+        ) : (
+          <LeagueSelectDefaultMessage />
+        )}
+
         <div className="flex flex-col gap-2">
           <div className="font-bold text-xl text-gray-500">各順位回数</div>
           {selectedLeagueSeasonMember?.numberOfEachOrder ? (

@@ -2,12 +2,7 @@ import * as React from "react";
 
 import { leaguesData } from "@/mocks/league";
 import { userData1 } from "@/mocks/user";
-import {
-  LeagueIdType,
-  LeagueMember,
-  LeagueSeasonIdType,
-  LeagueSeasonMember,
-} from "@/types/domain/league";
+import { LeagueSeasonIdType, LeagueSeasonMember } from "@/types/domain/league";
 
 export const usePersonalRecord = () => {
   const { userId, name, joiningLeagueIds } = userData1;
