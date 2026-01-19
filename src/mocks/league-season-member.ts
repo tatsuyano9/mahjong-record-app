@@ -19,6 +19,8 @@ export const leagueSeasonMemberData1: LeagueSeasonMember = {
   gamesPlayed: 10,
   rank: 1,
   numberOfEachOrder: { first: 3, second: 3, third: 2, fourth: 2 },
+  averageRank: 2.3,
+  top2Rate: 60,
 };
 
 export const leagueSeasonMemberData2: LeagueSeasonMember = {
@@ -27,6 +29,8 @@ export const leagueSeasonMemberData2: LeagueSeasonMember = {
   gamesPlayed: 10,
   rank: 2,
   numberOfEachOrder: { first: 2, second: 3, third: 3, fourth: 2 },
+  averageRank: 2.3,
+  top2Rate: 60,
 };
 
 export const leagueSeasonMemberData3: LeagueSeasonMember = {
@@ -35,6 +39,8 @@ export const leagueSeasonMemberData3: LeagueSeasonMember = {
   gamesPlayed: 10,
   rank: 3,
   numberOfEachOrder: { first: 2, second: 2, third: 3, fourth: 3 },
+  averageRank: 2.3,
+  top2Rate: 60,
 };
 
 export const leagueSeasonMemberData4: LeagueSeasonMember = {
@@ -43,6 +49,8 @@ export const leagueSeasonMemberData4: LeagueSeasonMember = {
   gamesPlayed: 10,
   rank: 4,
   numberOfEachOrder: { first: 3, second: 2, third: 2, fourth: 3 },
+  averageRank: 2.3,
+  top2Rate: 60,
 };
 
 export const leagueSeasonMemberData5: LeagueSeasonMember = {
@@ -51,6 +59,8 @@ export const leagueSeasonMemberData5: LeagueSeasonMember = {
   gamesPlayed: 10,
   rank: 5,
   numberOfEachOrder: { first: 2, second: 3, third: 2, fourth: 3 },
+  averageRank: 2.3,
+  top2Rate: 60,
 };
 
 export const leagueSeasonMemberData6: LeagueSeasonMember = {
@@ -59,6 +69,8 @@ export const leagueSeasonMemberData6: LeagueSeasonMember = {
   gamesPlayed: 10,
   rank: 6,
   numberOfEachOrder: { first: 1, second: 2, third: 4, fourth: 3 },
+  averageRank: 2.3,
+  top2Rate: 60,
 };
 
 export const leagueSeasonMemberData7: LeagueSeasonMember = {
@@ -67,6 +79,8 @@ export const leagueSeasonMemberData7: LeagueSeasonMember = {
   gamesPlayed: 10,
   rank: 7,
   numberOfEachOrder: { first: 3, second: 1, third: 3, fourth: 3 },
+  averageRank: 2.3,
+  top2Rate: 60,
 };
 
 export const leagueSeasonMemberData8: LeagueSeasonMember = {
@@ -75,6 +89,8 @@ export const leagueSeasonMemberData8: LeagueSeasonMember = {
   gamesPlayed: 10,
   rank: 8,
   numberOfEachOrder: { first: 2, second: 1, third: 4, fourth: 3 },
+  averageRank: 2.3,
+  top2Rate: 60,
 };
 
 export const leagueSeasonMemberData9: LeagueSeasonMember = {
@@ -83,6 +99,8 @@ export const leagueSeasonMemberData9: LeagueSeasonMember = {
   gamesPlayed: 10,
   rank: 9,
   numberOfEachOrder: { first: 2, second: 2, third: 2, fourth: 4 },
+  averageRank: 2.3,
+  top2Rate: 60,
 };
 
 export const leagueSeasonMembersData: Record<UserIdType, LeagueSeasonMember> = {
@@ -102,9 +120,11 @@ export const leagueSeasonMembersData: Record<UserIdType, LeagueSeasonMember> = {
 export const leagueSeasonMemberData10: LeagueSeasonMember = {
   player: userData1,
   totalPoints: -125.4,
-  gamesPlayed: 13,
+  gamesPlayed: 18,
   rank: 7,
   numberOfEachOrder: { first: 3, second: 2, third: 7, fourth: 6 },
+  averageRank: 2.89,
+  top2Rate: 27.78,
 };
 
 //土田リーグ -レギュラーシーズン
@@ -114,6 +134,8 @@ export const leagueSeasonMemberData11: LeagueSeasonMember = {
   gamesPlayed: 142,
   rank: 1,
   numberOfEachOrder: { first: 45, second: 38, third: 34, fourth: 25 },
+  averageRank: 2.27,
+  top2Rate: 58.45,
 };
 
 //土田リーグ -ファイナルシーズン
@@ -123,6 +145,8 @@ export const leagueSeasonMemberData12: LeagueSeasonMember = {
   gamesPlayed: 6,
   rank: 2,
   numberOfEachOrder: { first: 2, second: 1, third: 2, fourth: 1 },
+  averageRank: 2.33,
+  top2Rate: 50,
 };
 
 export const leagueSeasonMembersData2: Record<UserIdType, LeagueSeasonMember> =

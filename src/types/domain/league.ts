@@ -43,6 +43,8 @@ export type LeagueSeasonMember = {
   gamesPlayed: number;
   rank: number;
   numberOfEachOrder: NumberOfEachOrder;
+  averageRank: number;
+  top2Rate: number;
 };
 
 export type NumberOfEachOrder = {
