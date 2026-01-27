@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import Header from "@/components/common/container/header";
 import { Spacer } from "@/components/common/ui/spacer";
-import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { InputArea } from "@/components/ui/input-area";
 
 import { useSeasonNew } from "./hooks";

@@ -8,8 +8,8 @@ import Link from "next/link";
 
 import Header from "@/components/common/container/header";
 import { Spacer } from "@/components/common/ui/spacer";
-import Button from "@/components/ui/button";
-import Dropdown from "@/components/ui/dropdown/index";
+import { Button } from "@/components/ui/button";
+import { Dropdown } from "@/components/ui/dropdown";
 import { InputArea } from "@/components/ui/input-area";
 
 import { useLeagueNew } from "./hooks";
@@ -162,7 +162,6 @@ const NewLeaguePage: React.FC = () => {
               <Dropdown
                 defaultOption={RULE_SELECT_DEFAULT_TEXT}
                 options={ruleOptions}
-                label=""
                 onChange={handleRuleSelectChange}
               />
 
