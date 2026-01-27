@@ -4,9 +4,9 @@ import * as React from "react";
 
 import Header from "@/components/common/container/header";
 import { LeagueSelectDefaultMessage } from "@/components/pages/personal-record/league-select-default-message";
+import { PersonalRecordCard } from "@/components/pages/personal-record/personal-record-card";
 
 import { usePersonalRecord } from "./hooks";
-import { PersonalRecordCard } from "./personal-record-card";
 
 const PersonalRecordPage: React.FC = () => {
   const {

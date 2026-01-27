@@ -2,9 +2,9 @@ import * as React from "react";
 
 interface PersonalRecordCardProps {
   title: string;
-  value: string | number | null; // null を許容するように変更
+  value?: string | number;
   unit?: string;
-  description?: string; // 説明を追加することも可能
+  description?: string;
 }
 
 export const PersonalRecordCard: React.FC<PersonalRecordCardProps> = ({
