@@ -36,7 +36,7 @@ const sizeStyles: Record<Size, string> = {
 const baseStyles =
   "inline-flex items-center justify-center font-medium transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60";
 
-export const Button: React.FC<Props> = ({
+export export const Button: React.FC<Props> = ({
   children,
   variant = "brand-primary",
   size = "md",
