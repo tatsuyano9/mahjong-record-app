@@ -3,8 +3,11 @@
 import * as React from "react";
 
 import Header from "@/components/common/container/header";
+import { AverageRankCard } from "@/components/pages/personal-record/average-rank-card";
 import { LeagueSelectDefaultMessage } from "@/components/pages/personal-record/league-select-default-message";
-import { PersonalRecordCard } from "@/components/pages/personal-record/personal-record-card";
+import { TopTwoRateCard } from "@/components/pages/personal-record/top-two-rate-card";
+import { TotalMatchCard } from "@/components/pages/personal-record/total-match-card";
+import { TotalPointCard } from "@/components/pages/personal-record/total-point-card";
 
 import { usePersonalRecord } from "./hooks";
 
@@ -53,25 +56,17 @@ const PersonalRecordPage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-3 mt-1">
-          <PersonalRecordCard
-            title="総対戦数"
-            value={selectedLeagueSeasonMember?.gamesPlayed}
-            unit="戦"
+          <TotalMatchCard
+            selectedLeagueSeasonMember={selectedLeagueSeasonMember}
           />
-          <PersonalRecordCard
-            title="総合pt"
-            value={selectedLeagueSeasonMember?.totalPoints}
-            unit="pt"
+          <TotalPointCard
+            selectedLeagueSeasonMember={selectedLeagueSeasonMember}
           />
-          <PersonalRecordCard
-            title="平均順位"
-            value={selectedLeagueSeasonMember?.averageRank}
-            unit="位"
+          <AverageRankCard
+            selectedLeagueSeasonMember={selectedLeagueSeasonMember}
           />
-          <PersonalRecordCard
-            title="連対率"
-            value={selectedLeagueSeasonMember?.top2Rate}
-            unit="%"
+          <TopTwoRateCard
+            selectedLeagueSeasonMember={selectedLeagueSeasonMember}
           />
         </div>
 
