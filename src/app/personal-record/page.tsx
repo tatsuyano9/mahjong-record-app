@@ -52,32 +52,28 @@ const PersonalRecordPage: React.FC = () => {
           </div>
         </div>
 
-        {selectedLeagueSeasonMember ? (
-          <div className="grid grid-cols-2 gap-3 mt-1">
-            <PersonalRecordCard
-              title="総対戦数"
-              value={selectedLeagueSeasonMember.gamesPlayed}
-              unit="戦"
-            />
-            <PersonalRecordCard
-              title="総合pt"
-              value={selectedLeagueSeasonMember.totalPoints}
-              unit="pt"
-            />
-            <PersonalRecordCard
-              title="平均順位"
-              value={selectedLeagueSeasonMember.averageRank}
-              unit="位"
-            />
-            <PersonalRecordCard
-              title="連対率"
-              value={selectedLeagueSeasonMember.top2Rate}
-              unit="%"
-            />
-          </div>
-        ) : (
-          <LeagueSelectDefaultMessage />
-        )}
+        <div className="grid grid-cols-2 gap-3 mt-1">
+          <PersonalRecordCard
+            title="総対戦数"
+            value={selectedLeagueSeasonMember?.gamesPlayed}
+            unit="戦"
+          />
+          <PersonalRecordCard
+            title="総合pt"
+            value={selectedLeagueSeasonMember?.totalPoints}
+            unit="pt"
+          />
+          <PersonalRecordCard
+            title="平均順位"
+            value={selectedLeagueSeasonMember?.averageRank}
+            unit="位"
+          />
+          <PersonalRecordCard
+            title="連対率"
+            value={selectedLeagueSeasonMember?.top2Rate}
+            unit="%"
+          />
+        </div>
 
         <div className="flex flex-col gap-2">
           <div className="font-bold text-xl text-gray-500">各順位回数</div>
