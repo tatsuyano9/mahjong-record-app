@@ -1,4 +1,4 @@
-// app/league/page.tsx
+// app/league/season/page.tsx
 "use client";
 
 import * as React from "react";
@@ -52,15 +52,8 @@ const SeasonPage: React.FC = () => {
 
   if (!league) return null;
 
-  const {
-    name,
-    createdAt,
-    lastRecordedAt,
-    ruleName,
-    totalGames,
-    members,
-    titles,
-  } = league;
+  const { name, createdAt, lastRecordedAt, totalGames, members, titles } =
+    league;
 
   return (
     <div className="flex-1 bg-white min-h-full font-jp">
@@ -79,7 +72,7 @@ const SeasonPage: React.FC = () => {
               </span>
               <span className="inline-flex items-center gap-1">
                 <BookOpen size={14} className="text-white" />
-                <span>{ruleName}</span>
+                {/* TODO: ルール名（ruleName）を表示する要素を実装する */}
               </span>
             </div>
           </div>
@@ -140,7 +133,7 @@ const SeasonPage: React.FC = () => {
               <tbody>
                 {Object.values(members).map((member) => (
                   <tr
-                    key={member.rank}
+                    key={member.player.userId}
                     className="border-t border-pink-200 text-text-muted"
                   >
                     <td className="px-2 py-2 text-center">{member.rank}</td>
@@ -190,14 +183,16 @@ const SeasonPage: React.FC = () => {
           <LeagueSectionCard title="総合pt推移" bodyClassName="p-4">
             <div className="w-full h-48 bg-gray-50 rounded-md mb-3" />
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
-              {Object.values(members).map((member, index) => (
-                <div key={index} className="flex items-center gap-1">
+              {Object.values(members).map((member) => (
+                <div
+                  key={member.player.userId}
+                  className="flex items-center gap-1"
+                >
                   <span
                     className={clsx([
                       "inline-block w-2 h-2 rounded-full",
                       COLOR_MAP[member.player.color] ?? "bg-gray-500",
                     ])}
-                    // className={`inline-block w-2 h-2 rounded-full bg-${member.player.color}-500`}
                   />
                   <span className="text-text-muted">{member.player.name}</span>
                 </div>
