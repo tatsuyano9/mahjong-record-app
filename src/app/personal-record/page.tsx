@@ -3,17 +3,10 @@
 import * as React from "react";
 
 import Header from "@/components/common/container/header";
-import { AverageRankCard } from "@/components/pages/personal-record/average-rank-card";
-import { LeagueSelectDefaultMessage } from "@/components/pages/personal-record/league-select-default-message";
-import { TopTwoRateCard } from "@/components/pages/personal-record/top-two-rate-card";
-import { TotalMatchCard } from "@/components/pages/personal-record/total-match-card";
-import { TotalPointCard } from "@/components/pages/personal-record/total-point-card";
 
 const PersonalRecordPage: React.FC = () => {
   const [selectedLeagueSeasonId, setSelectedLeagueSeasonId] =
     React.useState("");
-  const [selectedLeagueSeasonMember, setSelectedLeagueSeasonMember] =
-    React.useState(null);
 
   const joiningLeagueSeasons = [
     { id: "season1", name: "2024春シーズン" },
@@ -27,7 +20,6 @@ const PersonalRecordPage: React.FC = () => {
   };
 
   const onDisplayButtonClick = () => {
-    // TODO: 選択したシーズンのデータを取得
     console.log("表示ボタンが押されました");
   };
 
@@ -64,68 +56,8 @@ const PersonalRecordPage: React.FC = () => {
             </div>
           </div>
         </div>
-
-        <div className="grid grid-cols-2 gap-3 mt-1">
-          <TotalMatchCard
-            selectedLeagueSeasonMember={selectedLeagueSeasonMember}
-          />
-          <TotalPointCard
-            selectedLeagueSeasonMember={selectedLeagueSeasonMember}
-          />
-          <AverageRankCard
-            selectedLeagueSeasonMember={selectedLeagueSeasonMember}
-          />
-          <TopTwoRateCard
-            selectedLeagueSeasonMember={selectedLeagueSeasonMember}
-          />
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <div className="font-bold text-xl text-gray-500">各順位回数</div>
-          {selectedLeagueSeasonMember?.numberOfEachOrder ? (
-            <div className="text-base font-bold text-text-dark rounded-md overflow-hidden border border-gray-300">
-              <table className="min-w-full border-collapse">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="py-2 px-4 border-b border-gray-300 text-left">
-                      順位
-                    </th>
-                    <th className="py-2 px-4 border-b border-gray-300 text-left">
-                      回数
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-gray-300">1位</td>
-                    <td className="py-2 px-4 border-b border-gray-300">
-                      {selectedLeagueSeasonMember.numberOfEachOrder.first}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-gray-300">2位</td>
-                    <td className="py-2 px-4 border-b border-gray-300">
-                      {selectedLeagueSeasonMember.numberOfEachOrder.second}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4 border-b border-gray-300">3位</td>
-                    <td className="py-2 px-4 border-b border-gray-300">
-                      {selectedLeagueSeasonMember.numberOfEachOrder.third}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 px-4">4位</td>
-                    <td className="py-2 px-4">
-                      {selectedLeagueSeasonMember.numberOfEachOrder.fourth}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          ) : (
-            <LeagueSelectDefaultMessage />
-          )}
+        <div className="mt-4 text-text-muted">
+          シーズンを選択して表示ボタンをクリックしてください
         </div>
       </div>
     </div>
