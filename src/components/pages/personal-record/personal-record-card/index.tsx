@@ -19,11 +19,7 @@ export const PersonalRecordCard: React.FC<PersonalRecordCardProps> = ({
       <h3 className="text-3xl font-extrabold text-slate-700 tracking-tight">
         {value !== null && value !== undefined ? (
           <>
-            {title === "総対戦数" && typeof value === "number"
-              ? Math.floor(value) // 総対局数のみ整数に変換
-              : typeof value === "number"
-                ? value.toFixed(2) // それ以外の数値は小数点以下2桁
-                : value}
+            {value}
             {unit && (
               <span className="text-xl font-semibold text-brand-500 ml-1">
                 {unit}
