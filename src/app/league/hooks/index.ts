@@ -1,31 +1,13 @@
-import * as React from "react";
-
-import { leaguesData } from "@/mocks/league";
+import { leagueRecordData1 } from "@/mocks/league-record";
+import { leagueSeasonOverviewsData } from "@/mocks/league-season-overview";
 
 export const useLeague = () => {
-  // リーグ記録データ（全シーズン通して）
-  const winStreak = { text: "5連勝", player: "岩田" };
-  const loseStreak = { text: "3連敗", player: "富田" };
-  const highestScore = { text: "48000点", player: "岩田" };
-  const lowestScore = { text: "-12000点", player: "野口" };
+  // TODO: リーグ記録データをモックデータまたはAPIから取得する
+  const { winStreak, loseStreak, highestScore, lowestScore } =
+    leagueRecordData1;
 
-  // シーズン一覧データ
-  const seasons = [
-    {
-      id: "season1",
-      name: "2024春シーズン",
-      memberCount: 8,
-      gameCount: 32,
-      isOngoing: true,
-    },
-    {
-      id: "season2",
-      name: "2024冬シーズン",
-      memberCount: 6,
-      gameCount: 24,
-      isOngoing: false,
-    },
-  ];
+  // TODO: シーズン一覧データをモックデータまたはAPIから取得する
+  const seasons = leagueSeasonOverviewsData;
 
   return {
     winStreak,

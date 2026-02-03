@@ -75,10 +75,10 @@ const LeaguePage: React.FC = () => {
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {seasons.map((season) => (
               <div
-                key={season.id}
+                key={season.leagueSeasonId}
                 className={`bg-white rounded-lg p-4 hover:shadow-lg transition-shadow relative ${
                   season.isOngoing
-                    ? "border-2 border-[#E8736B]"
+                    ? "border-2 border-brand-600"
                     : "border-2 border-gray-300"
                 }`}
               >
@@ -97,7 +97,7 @@ const LeaguePage: React.FC = () => {
                   <div
                     className={`flex items-center justify-center w-16 h-12 rounded-lg font-bold text-base ${
                       season.isOngoing
-                        ? "bg-[#E8736B] text-white"
+                        ? "bg-brand-600 text-white"
                         : "bg-gray-200 text-gray-600"
                     }`}
                   >
