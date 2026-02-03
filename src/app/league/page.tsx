@@ -20,30 +20,50 @@ const LeaguePage: React.FC = () => {
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {/* 連勝記録 */}
             <div className="bg-white rounded-lg border-2 border-brand-200 p-4">
-              <div className="text-sm text-text-muted mb-2">連勝記録</div>
+              <div className="text-sm font-bold text-text-muted mb-2">
+                連勝記録
+              </div>
+              <div className="text-xs text-text-muted mb-2">
+                {winStreak.player}
+              </div>
               <div className="text-3xl font-bold text-brand-600">
-                {winStreak}
+                {winStreak.text}
               </div>
             </div>
             {/* 連敗記録 */}
             <div className="bg-white rounded-lg border-2 border-brand-200 p-4">
-              <div className="text-sm text-text-muted mb-2">連敗記録</div>
+              <div className="text-sm font-bold text-text-muted mb-2">
+                連敗記録
+              </div>
+              <div className="text-xs text-text-muted mb-2">
+                {loseStreak.player}
+              </div>
               <div className="text-3xl font-bold text-brand-600">
-                {loseStreak}
+                {loseStreak.text}
               </div>
             </div>
             {/* 最高スコア */}
             <div className="bg-white rounded-lg border-2 border-brand-200 p-4">
-              <div className="text-sm text-text-muted mb-2">最高スコア</div>
+              <div className="text-sm font-bold text-text-muted mb-2">
+                最高スコア
+              </div>
+              <div className="text-xs text-text-muted mb-2">
+                {highestScore.player}
+              </div>
               <div className="text-3xl font-bold text-brand-600">
-                {highestScore}
+                {highestScore.text}
               </div>
             </div>
             {/* 最低スコア */}
             <div className="bg-white rounded-lg border-2 border-brand-200 p-4">
-              <div className="text-sm text-text-muted mb-2">最低スコア</div>
+              <div className="text-sm font-bold text-text-muted mb-2">
+                最低スコア
+              </div>
+              <div className="text-xs text-text-muted mb-2">
+                {lowestScore.player}
+              </div>
               <div className="text-3xl font-bold text-brand-600">
-                {lowestScore}
+                {lowestScore.text}
               </div>
             </div>
           </div>
@@ -56,16 +76,33 @@ const LeaguePage: React.FC = () => {
             {seasons.map((season) => (
               <div
                 key={season.id}
-                className="bg-white rounded-lg border-2 border-gray-300 p-4 hover:shadow-lg transition-shadow"
+                className={`bg-white rounded-lg p-4 hover:shadow-lg transition-shadow relative ${
+                  season.isOngoing
+                    ? "border-2 border-[#E8736B]"
+                    : "border-2 border-gray-300"
+                }`}
               >
-                <div className="text-lg font-bold text-text-dark mb-2">
-                  {season.name}
-                </div>
-                <div className="text-sm text-text-muted">
-                  参加者：{season.memberCount}人
-                </div>
-                <div className="text-sm text-text-muted">
-                  対局数：{season.gameCount}局
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <div className="text-lg font-bold text-text-dark mb-2">
+                      {season.name}
+                    </div>
+                    <div className="text-sm text-text-muted">
+                      参加者：{season.memberCount}人
+                    </div>
+                    <div className="text-sm text-text-muted">
+                      対局数：{season.gameCount}局
+                    </div>
+                  </div>
+                  <div
+                    className={`flex items-center justify-center w-16 h-12 rounded-lg font-bold text-base ${
+                      season.isOngoing
+                        ? "bg-[#E8736B] text-white"
+                        : "bg-gray-200 text-gray-600"
+                    }`}
+                  >
+                    {season.isOngoing ? "進行中" : "終了"}
+                  </div>
                 </div>
               </div>
             ))}
