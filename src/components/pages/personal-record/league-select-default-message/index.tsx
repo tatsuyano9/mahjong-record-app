@@ -1,3 +1,3 @@
 export const LeagueSelectDefaultMessage: React.FC = () => (
-  <div className="text-text-muted">リーグを選択して下さい。</div>
+  <div className="text-text-muted">シーズンを選択して下さい。</div>
 );
