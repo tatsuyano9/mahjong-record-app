@@ -31,7 +31,7 @@ export const usePersonalRecord = () => {
 
   const onChangeLeagueSeason = React.useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
-      setSelectedLeagueSeasonId(e.target.value as LeagueSeasonIdType);
+      setSelectedLeagueSeasonId(e.target.value as LeagueSeasonIdType | "");
     },
     [selectedLeagueSeasonId]
   );
