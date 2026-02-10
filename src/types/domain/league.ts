@@ -1,5 +1,7 @@
+import { Rule } from "./rule";
 import { User, UserIdType } from "./user";
-import { AppDate } from "../utils/app-date";
+
+import { AppDate } from "@/types/utils/app-date";
 
 export type LeagueIdType = string;
 
@@ -9,11 +11,11 @@ export type League = {
   leagueId: LeagueIdType;
   name: string;
   createdAt: AppDate;
+  rule: Rule;
   members: Record<UserIdType, LeagueMember>;
   seasons: Record<LeagueSeasonIdType, LeagueSeason>;
   //仮で追加
   lastRecordedAt: AppDate;
-  ruleName: string;
   totalGames: number;
   titles?: LeagueTitle[];
 };
