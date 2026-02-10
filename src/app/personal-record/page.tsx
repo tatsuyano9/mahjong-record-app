@@ -38,8 +38,8 @@ const PersonalRecordPage: React.FC = () => {
             >
               <option value="">シーズンを選択してください</option>
               {joiningLeagueSeasons &&
-                joiningLeagueSeasons.map((leagueSeason, index) => (
-                  <option key={index} value={leagueSeason.id}>
+                joiningLeagueSeasons.map((leagueSeason) => (
+                  <option key={leagueSeason.id} value={leagueSeason.id}>
                     {leagueSeason.name}
                   </option>
                 ))}
