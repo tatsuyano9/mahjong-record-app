@@ -44,7 +44,7 @@ export const usePersonalRecord = () => {
     }
 
     const selectedLeague = joiningLeagueSeasons?.find(
-      (season) => season.id == selectedLeagueSeasonId
+      (season) => season.id === selectedLeagueSeasonId
     );
 
     // selectedLeague が undefined でないことを保証する
