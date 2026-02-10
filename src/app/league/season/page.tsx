@@ -7,35 +7,9 @@ import clsx from "clsx";
 import { Calendar, BookOpen, Crown } from "lucide-react";
 
 import { LeagueSectionCard } from "@/components/pages/league/league-section-card/index";
+import { COLOR_MAP } from "@/constants/color-map";
 
 import { useLeague } from "./hooks";
-
-import { ColorState } from "@/types/domain/color";
-
-const COLOR_MAP: Record<ColorState, string> = {
-  red: "bg-red-500",
-  blue: "bg-blue-500",
-  green: "bg-green-500",
-  yellow: "bg-yellow-500",
-  purple: "bg-purple-500",
-  pink: "bg-pink-500",
-  orange: "bg-orange-500",
-  sky: "bg-sky-500",
-  emerald: "bg-emerald-500",
-  amber: "bg-amber-500",
-  lime: "bg-lime-500",
-  teal: "bg-teal-500",
-  cyan: "bg-cyan-500",
-  indigo: "bg-indigo-500",
-  violet: "bg-violet-500",
-  fuchsia: "bg-fuchsia-500",
-  rose: "bg-rose-500",
-  magenta: "bg-magenta-500",
-  brown: "bg-yellow-800",
-  stone: "bg-stone-500",
-  gray: "bg-gray-500",
-  black: "bg-black",
-};
 
 const SeasonPage: React.FC = () => {
   const { league, error } = useLeague();
