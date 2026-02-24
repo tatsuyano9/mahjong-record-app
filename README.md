@@ -2,6 +2,10 @@
 
 麻雀のスコア管理アプリケーションです。仲のいいグループごとにリーグを作成することもできます。
 
+## API Documentation
+
+📚 [API仕様書（Swagger UI）](https://tatsuyano9.github.io/mahjong-record-app/swagger/)
+
 ## Prerequisites
 
 - Node.jsの使用バージョン統一。nvmのインストールを推奨。
@@ -36,6 +40,22 @@ npm run dev
 ├─ .githooks/
 │  └─ pre-commit
 ├─ public/
+├─ packages/
+│  ├─ web/  # 移行予定
+│  └─ api/
+│    ├── .env.example
+│    ├── package.json
+│    └── src
+│        ├── app.ts              # アプリケーションのエントリーポイント（DI設定・サーバ初期化）
+│        ├── controller          # HTTP I/O（コントローラ・レスポンス整形）
+│        ├── core                # 純粋なビジネスロジック層（フレームワークに依存しない）
+│        │   ├── application     # アプリケーションサービス層（入力値検証 & ドメイン呼び出し）
+│        │   └── domain          # ドメインモデル層（ビジネスルールを保持）
+│        │       ├── model       # ドメインエンティティ・値オブジェクト
+│        │       ├── repository  # リポジトリのインターフェース（抽象）
+│        │       └── service     # ドメインサービス（複数エンティティに跨るビジネスロジック）
+│        └── infra               # インフラストラクチャ層（外部サービスやDBとの接続）
+│            └── repository      # リポジトリ実装（具体的なデータストア操作）
 ├─ src/
 │  ├─ app/
 │  │  ├─ home/
