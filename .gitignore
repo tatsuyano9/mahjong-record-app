@@ -42,3 +42,6 @@ next-env.d.ts
 
 # vscode settings
 .vscode/
+
+# local onboarding memo (do not push)
+ONBOARDING.md
